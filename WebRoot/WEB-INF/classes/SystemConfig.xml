@@ -7,7 +7,7 @@
 		<dbUrl>jdbc:sqlserver://127.0.0.1:1433;DatabaseName=fuli</dbUrl>
 		<dbUser>sa</dbUser>
 		<dbPassword>Wyg2461290!</dbPassword>
-	</db> 
+	</db>
 	
 	<!-- t1相关信息 -->
 	<t1>
