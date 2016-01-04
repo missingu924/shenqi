@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Config>
+
+	<!-- 业务数据库 -->
+	<db>
+		<dbDriverClassName>com.microsoft.sqlserver.jdbc.SQLServerDriver</dbDriverClassName>
+		<dbUrl>jdbc:sqlserver://127.0.0.1:1433;DatabaseName=fuli</dbUrl>
+		<dbUser>sa</dbUser>
+		<dbPassword>Wyg2461290!</dbPassword>
+	</db>
+	
+	<!-- t1相关信息 -->
+	<t1>
+		<!-- 数据库名 -->
+		<db_name>UFbstcld</db_name>
+		
+		<!-- 白沙滩村委会s_ID,对应units表中信息 -->
+		<unit_id>995</unit_id>
+		
+		<!-- 白沙滩村粮店s_ID,对应StorHouse表中信息 -->
+		<store_id>508</store_id>
+	</t1>
+	
+</Config>

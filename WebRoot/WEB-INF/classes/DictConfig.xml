@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="gb2312"?>
+<DictConfig version="1.0">
+	<DictConfigList>
+		<DictConfig dictShowName="表和视图" dictName="all_tables" dictTable="sysobjects" dictKeyCol="lower(name) as key_col" dictValueCol="lower(name) as value_col" dictOrderByCol="name" filter="xtype in ('u','v')"/>
+	</DictConfigList>
+	<DictRelationList>
+		<DictRelation fromDict="taskType" toDict="taskSubType" fromDictCol="taskType"/>
+	</DictRelationList>
+</DictConfig>

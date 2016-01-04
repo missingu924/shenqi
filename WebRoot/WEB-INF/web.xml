@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<context-param>
+		<param-name>db.url</param-name>
+		<param-value>
+			jdbc:h2:tcp://localhost/../webapps/dafeng/h2/h2;MODE=Oracle
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>db.user</param-name>
+		<param-value>changda</param-value>
+	</context-param>
+	<context-param>
+		<param-name>db.password</param-name>
+		<param-value>changda!@#321</param-value>
+	</context-param>
+	<context-param>
+		<param-name>db.tcpServer</param-name>
+		<param-value>-tcpAllowOthers</param-value>
+	</context-param>
+	<filter>
+		<filter-name>AuthFilter</filter-name>
+		<filter-class>com.hz.auth.AuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AuthFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- H2 Database -->
+	<listener>
+		<listener-class>org.h2.server.web.DbStarter</listener-class>
+	</listener>
+	<servlet>
+		<display-name>Quartz Initializer Servlet</display-name>
+		<servlet-name>QuartzInitializer</servlet-name>
+		<servlet-class>
+			org.quartz.ee.servlet.QuartzInitializerServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config-file</param-name>
+			<param-value>quartz.properties</param-value>
+		</init-param>
+		<init-param>
+			<param-name>shutdown-on-unload</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>start-scheduler-on-load</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AuthServlet</servlet-name>
+		<servlet-class>com.hz.auth.AuthServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DictServlet</servlet-name>
+		<servlet-class>com.hz.dict.DictServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UtilServlet</servlet-name>
+		<servlet-class>com.hz.util.UtilServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>H2Console</servlet-name>
+		<servlet-class>org.h2.server.web.WebServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<display-name>System</display-name>
+		<servlet-name>SystemServlet</servlet-name>
+		<servlet-class>com.wuyg.system.SystemServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AuthServlet</servlet-name>
+		<url-pattern>/Auth/Servlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DictServlet</servlet-name>
+		<url-pattern>/Dict/Servlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UtilServlet</servlet-name>
+		<url-pattern>/Util/Servlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>H2Console</servlet-name>
+		<url-pattern>/console/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SystemServlet</servlet-name>
+		<url-pattern>/System/Servlet</url-pattern>
+	</servlet-mapping>
+	
+	<session-config>
+		<session-timeout>3600</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+	
+	<servlet>
+		<servlet-name>DbModelServlet</servlet-name>
+		<servlet-class>com.wuyg.dbmodel.DbModelServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DbModelServlet</servlet-name>
+		<url-pattern>/DbModel/Servlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>VillagerServlet</servlet-name>
+		<servlet-class>com.fuli.VillagerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VillagerServlet</servlet-name>
+		<url-pattern>/Villager/Servlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>WelfarePolicyServlet</servlet-name>
+		<servlet-class>com.fuli.WelfarePolicyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WelfarePolicyServlet</servlet-name>
+		<url-pattern>/WelfarePolicy/Servlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>VWelfareDrawDetailServlet</servlet-name>
+		<servlet-class>com.fuli.VWelfareDrawDetailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>VWelfareDrawDetailServlet</servlet-name>
+		<url-pattern>/VWelfareDrawDetail/Servlet</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

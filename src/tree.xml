@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="gb2312"?>
+<treeConfig version="1.0">
+
+	<tree name="部门人员树" showName="部门人员树" >
+		<subtree name="district" table="dict_district"
+			keyCol="name" valueCol="name"
+			filter="" excetpKeyValue=""
+			orderBy="id">
+			<subtree name="department" table="auth_department"
+				keyCol="departmentId" valueCol="departmentName" filter=""
+				toParentCol="districtName" orderBy="departmentId">
+				<subtree name="user" table="auth_user" keyCol="account"
+					valueCol="name" toParentCol="departmentId" filter="" orderBy="name">
+				</subtree>
+			</subtree>
+		</subtree>
+	</tree>
+
+</treeConfig>

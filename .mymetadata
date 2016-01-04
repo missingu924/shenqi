@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="shenqi"
+  id="myeclipse.1451713871177"
+  context-root="/shenqi"
+  j2ee-spec="5.0"
+  archive="shenqi.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
